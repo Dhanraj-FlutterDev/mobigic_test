@@ -47,14 +47,14 @@ class _GridScreenState extends State<GridScreen> {
   }
 
   findUsingLoop(String text, List list) {
-    // for (String s in list) {
-    //   if (s.contains(text)) {
-    //     matchcharacters.add(s);
-    //   }
-    // }
-    if (list.toString().toLowerCase().contains(text)) {
-      matchcharacters.add(list);
+    for (String s in list) {
+      if (s.contains(text)) {
+        matchcharacters.add(s);
+      }
     }
+    // if (list.toString().toLowerCase().contains(text)) {
+    //   matchcharacters.add(list);
+    // }
     print('sssss $matchcharacters');
     return matchcharacters;
   }

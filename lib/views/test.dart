@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobigic_test/views/grid_screen.dart';
 
 class Test extends StatefulWidget {
@@ -15,6 +16,10 @@ class _TestState extends State<Test> {
   FocusNode focusNodeOne = FocusNode();
   FocusNode focusNodeTwo = FocusNode();
   FocusNode focusNodeThree = FocusNode();
+
+  showToast(text) {
+    return Fluttertoast.showToast(msg: text);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,14 +80,22 @@ class _TestState extends State<Test> {
             Center(
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => GridScreen(
-                                  row: int.parse(rowController.text),
-                                  col: int.parse(columnController.text),
-                                  alphabest: alphabetController.text,
-                                )));
+                    if (rowController.text.isEmpty) {
+                      showToast('Please add number of rows');
+                    } else if (columnController.text.isEmpty) {
+                      showToast('Please add number of columns');
+                    } else if (alphabetController.text.isEmpty) {
+                      showToast('Please add characters');
+                    } else {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => GridScreen(
+                                    row: int.parse(rowController.text),
+                                    col: int.parse(columnController.text),
+                                    alphabest: alphabetController.text,
+                                  )));
+                    }
                   },
                   child: const Text('Create Grid')),
             )
