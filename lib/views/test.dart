@@ -70,7 +70,7 @@ class _TestState extends State<Test> {
                         int.parse(columnController.text),
                     decoration: InputDecoration(
                       hintText:
-                          'Enter Alphabets of Lenght ${int.parse(rowController.text) * int.parse(columnController.text)}',
+                          'Enter Alphabets of ${int.parse(rowController.text) * int.parse(columnController.text)}',
                     ),
                   )
                 : const SizedBox(),
