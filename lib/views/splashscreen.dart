@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: Colors.black,
       body: Center(
         child: Text(
-          'This is SplashScreen',
+          'This is SplashScreenssss',
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
